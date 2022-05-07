@@ -2,10 +2,10 @@ import requests
 import json
 
 city = "Seoul"
-apikey = "6397279066772453ddc642adddc4305a"
+apikey = ""
 lang = "kr"
 #units - metric
-api = f"""http://api.openweathermap.org/data/2.5/\
+#api = f"""http://api.openweathermap.org/data/2.5/\
 weather?q={city}&appid={apikey}&lang={lang}&units=metric"""
 rslt = requests.get(api)
 #print(rslt.text)
