@@ -10,4 +10,4 @@
 |`일단 만드는 HTML/CSS`|<img width="829" alt="스크린샷 2022-04-06 오전 1 33 18" src="https://user-images.githubusercontent.com/102134838/161803383-98db3657-81fb-4f8b-a0bf-9cb1686b19e5.png">|
 |`일단 만드는 PYTHON`|<img width="1028" alt="스크린샷 2022-05-08 오전 2 27 55" src="https://user-images.githubusercontent.com/102134838/167265262-961cb38b-9945-48db-a526-e829fc27e1a1.png">|
 |`[심화]같이 푸는 PYTHON`|<img width="1031" alt="스크린샷 2022-05-08 오전 2 25 40" src="https://user-images.githubusercontent.com/102134838/167265234-b1285267-0874-4133-bd03-643ad9e0a677.png">|
-|`일단 만드는 Django`|<img width="1027" alt="스크린샷 2022-06-21 오후 1 20 47" src="https://user-images.githubusercontent.com/102134838/174715490-99e33dcf-45e3-4b5f-907f-f4849a69154b.png">|
+|`일단 만드는 Django`|<img width="1024" alt="스크린샷 2022-06-28 오후 2 11 43" src="https://user-images.githubusercontent.com/102134838/176097809-c776cb32-7c46-44bc-8c0f-4fc9913ecfdd.png">|
