@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>page</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Who am I?</h1>
+    <p>{{ descriptions.count }} contents exist</p>
+    <br>
+    {% for des in descriptions.all %}
+        <h3>제목: {{ des.title }}</h3>
+        <p>날짜: {{ des.pub_date }}</p>
+        <p>미리보기: {{ des.summary }} <a href="{% url 'content' des.id %}">...more</a></p>
+    {% endfor %}
+    <br>
+    <p>Go to your contents!</p>
+    {% endblock %}
+</body>
+</html>
