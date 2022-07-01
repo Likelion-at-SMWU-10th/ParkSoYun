@@ -19,3 +19,21 @@ def signup(request):
             return render(request, 'accounts/signup.html',{'error':'비밀버호가 일치하지 않습니다.'})
     else:
         return render(request, 'accounts/signup.html')
+
+def signin(request):
+    if request.method=='POST':
+        Id=request.POST['userID']
+        pwd=request.POST['password']
+        user=auth.authenticate(request,username=Id, password=pwd)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'account/signin.html', {'error':'잘못된 아이디 또는 비밀번호입니다.'})
+    else:
+        return render(request,'accounts/signin.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('home')

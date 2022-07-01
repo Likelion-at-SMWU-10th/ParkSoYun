@@ -6,11 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <title>Soyun's Diary</title>
+    <title>Welcome to Diary</title>
+    
 </head>
 <body>
-    <h1>This is Soyun's diary</h1>
-    <img src="{% static 'img/diary_noun_002_10619.jpg' %}"><br>
-    <a href="description/page">swipe to next page</a>
+
+    {% if user.is_authenticated %}
+        <h1>{{ user.username }}'s Diary!</h1>
+        <a href="{% url 'signout' %}">Sign out</a>
+        <br>
+        <img src="{% static 'img/diary_noun_002_10619.jpg' %}"><br>
+        <a href="description/page">swipe to next page</a>
+    {% else %}
+        <h1>Who's Diary?</h1>
+        <br>
+        <div>
+            <a href="{% url 'signin' %}">Sign in</a>
+            <br>
+            <img src="{% static 'img/2910768.png' %}">
+        </div>
+        <div>
+            <a href="{% url 'signup' %}">Sign up</a>
+            <br>
+            <img src="{% static 'img/2910756.png' %}">
+        </div>
+        
+        
+    {% endif %}
+    
+    
 </body>
 </html>

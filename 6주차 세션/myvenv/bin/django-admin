@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/bagsoyun/Desktop/likelion_10th_hw/6주차 세션/myvenv/bin/python" "$0" "$@"
+'''exec' "/Users/bagsoyun/Desktop/likelion_10th_hw/6주차 세션/myvenv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Soyun's Diary</title>
+</head>
+<body>
+    <h1>This is Soyun's diary</h1>
+    <img src="{% static 'img/diary_noun_002_10619.jpg' %}"><br>
+    <a href="{% url 'page' %}">swipe to next page</a>
+</body>
+</html>
