@@ -1,8 +1,12 @@
 {% extends 'blogapp/base.html' %}
 {% block content %}
 {% load static %}
-  <title>Soyun's blog</title>
-  <h1>this is soyun's blog</h1>
+  <title>Welcome to blog</title>
+  {% if user.is_authenticated %}
+    <h1>This is a {{ user.username }}'s blog!</h1>
+  {% else %}
+    <h1>Whose blog is it? </h1>
+  {% endif %}
   <a href="blog/">to blog page</a> <br><br>
   <img src="{% static 'img/harry.jpg' %}">
 {% endblock %}
