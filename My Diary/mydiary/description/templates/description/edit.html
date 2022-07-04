@@ -1,5 +1,10 @@
-<h1>Write the answer about Who am I</h1>
-<textarea name="msg" row="2" cols="57"></textarea>
-<h1>upload your picture</h1>
+{% block content %}
+    <h1>Write the answer about Who am I</h1>
 
-<input type="submit" value="submit">
+    <form action="{% url 'formcreate' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create New page">
+    </form>
+
+{% endblock %}
