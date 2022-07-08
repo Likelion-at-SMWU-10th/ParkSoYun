@@ -19,7 +19,8 @@
         <p>미리보기: {{ des.summary }} <a href="{% url 'content' des.id %}">...more</a></p>
     {% endfor %}
     <br>
-    <p>Go to your contents!</p>
+    <a href="{% url 'formcreate' %}">Write down your storys!</a>
+
     {% endblock %}
 </body>
 </html>
