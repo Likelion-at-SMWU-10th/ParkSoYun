@@ -7,4 +7,4 @@ class PageForm(forms.ModelForm):
     #body=forms.CharField(widget=forms.Textarea)
     class Meta:
         model=Description
-        fields=['title','body']
+        fields='__all__'

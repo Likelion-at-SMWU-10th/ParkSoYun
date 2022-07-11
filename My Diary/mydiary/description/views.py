@@ -6,15 +6,12 @@ from django.utils import timezone
 from .forms import PageForm
 
 def page(request):
-    descriptions=Description.objects
+    descriptions=Description.objects.all()
     return render(request,'description/page.html',{'descriptions':descriptions})
 
 def content(request, des_id):
     description=get_object_or_404(Description,pk=des_id)
     return render(request,'description/content.html', {'description':description})
-
-def edit(request):
-    return render(request,'description/edit.html')
 
 def formcreate(request):
     if request.method=='POST':
@@ -42,3 +39,23 @@ def modelformcreate(request):
 
 def new(request):
     return render(request,'description/new.html')
+
+def edit(request):
+    return render(request,'description/edit.html')
+
+def contentupdate(request, des_id):
+    post=get_object_or_404(Description,pk=des_id)
+    if request.method=='POST':
+        form=PageForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('content',des_id=post.pk)
+    else:
+        form=PageForm(instance=post)
+        return render(request, 'description/edit.html',{'form':form})
+
+def contentdelete(request, des_id):
+    post=get_object_or_404(Description, pk=des_id)
+    post.delete()
+    return redirect('page')
+
