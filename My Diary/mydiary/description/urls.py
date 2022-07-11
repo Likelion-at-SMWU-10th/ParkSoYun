@@ -5,5 +5,7 @@ urlpatterns=[
     path('content/<int:des_id>',views.content, name='content'),
     path('edit/',views.edit,name='edit'),
     path('page/',views.page, name='page'),
-    path('formcreate/',views.formcreate, name='formcreate'),
+    #path('formcreate/',views.formcreate, name='formcreate'),
+    path('new/',views.new, name='new'),
+    path('modelformcreate/',views.modelformcreate,name='modelformcreate'),
 ]

@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render,get_object_or_404
 from .models import Description
 from .forms import PageForm
 from django.utils import timezone
+from .forms import PageForm
 
 def page(request):
     descriptions=Description.objects
@@ -25,6 +26,19 @@ def formcreate(request):
             post.pub_date=timezone.now()
             post.save()
             return redirect('page')
-    if request.method=='GET':
+    else:
         form=PageForm()
         return render(request, 'description/edit.html',{'form':form})
+
+def modelformcreate(request):
+    if request.method=='POST':
+        form=PageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('page')
+    else:
+        form=PageForm()
+    return render(request,'description/new.html',{'form':form})
+
+def new(request):
+    return render(request,'description/new.html')
