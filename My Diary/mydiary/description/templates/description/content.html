@@ -6,5 +6,8 @@
     <h3>제목: {{ description.title }}</h3>
     <p>날짜: {{ description.pub_date }}</p>
     <p>내용: {{ description.body }}</p>
+    <br>
+    <a href="{% url 'contentupdate' description.id %}">Modifying</a>
+    <a href="{% url 'contentdelete' description.id %}">   Delete</a>
 
 {% endblock %}
