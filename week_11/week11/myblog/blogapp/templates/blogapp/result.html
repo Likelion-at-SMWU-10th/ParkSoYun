@@ -1,0 +1,28 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+
+    <title>Blog List</title>
+
+    <h1>Blog List</h1>
+    <br>
+    <br>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    {% if result.count %}
+        {% for rst in result.all %}
+            <h3>제목: {{ rst.title }}</h3>
+            <h3>날짜: {{ rst.pub_date }}</h3>
+            <h3>미리보기: {{ rst.summary }} <a href="{% url 'detail' rst.id %}">...more</a></h3>
+        {% endfor %}
+
+        <a href="/">to main page</a>
+
+    {% else %}
+        <h3>검색 결과가 없습니다.</h3>
+    
+    {% endif %}
+    
+{% endblock %}
