@@ -65,5 +65,5 @@ def result(request):
         des_objects=Description.objects.filter(title__contains=query)
         return render(request, 'description/result.html',{'result':des_objects})
     else:
-        return render(request, 'description/result.html',{'error':'검색어를 입력허세요'})
+        return render(request, 'description/result.html',{'error':'검색어를 입력하세요'})
 
