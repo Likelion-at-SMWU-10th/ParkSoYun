@@ -1,0 +1,23 @@
+{% block content %}
+    <title>Blog List</title>
+    <h1>Blog List</h1>
+    <br>
+    <br>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    {% if result.count %}
+        {% for des in result.all %}
+            <h3>제목: {{ des.title }}</h3>
+            <p>날짜: {{ des.pub_date }}</p>
+            <p>본문 미리보기: {{ des.summary }} <a href="{% url 'content' des.id %}">...more</a></p>
+        {% endfor %}
+        <a href="page/">to blog page</a>
+    
+    {% else %}
+        <h3>검색 결과가 없습니다.</h3>
+    
+    {% endif %}
+{% endblock %}
