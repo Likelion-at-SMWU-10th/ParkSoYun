@@ -59,3 +59,11 @@ def contentdelete(request, des_id):
     post.delete()
     return redirect('page')
 
+def result(request):
+    query=request.GET.get('query','')
+    if query:
+        des_objects=Description.objects.filter(title__contains=query)
+        return render(request, 'description/result.html',{'result':des_objects})
+    else:
+        return render(request, 'description/result.html',{'error':'검색어를 입력허세요'})
+
