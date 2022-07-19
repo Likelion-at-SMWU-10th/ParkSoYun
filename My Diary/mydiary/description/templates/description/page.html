@@ -12,6 +12,11 @@
     {% block content %}
     <h1>Who am I?</h1>
     <p>{{ descriptions.count }} contents exist</p>
+    <form action="{% url 'result' %}" type="get">
+        <input type="search" name="query">
+        <button type="submit">search</button>
+    </form>
+    
     <br>
     {% for des in descriptions.all %}
         <h3>제목: {{ des.title }}</h3>
