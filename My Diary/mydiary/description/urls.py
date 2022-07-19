@@ -12,4 +12,5 @@ urlpatterns=[
     path('contentupdate/<int:des_id>',views.contentupdate,name='contentupdate'),
     path('contentdelete/<int:des_id>',views.contentdelete,name='contentdelete'),
     path('result',views.result,name='result'),
+    path('commentcreate/<int:des_id>',views.commentcreate,name='commentcreate'),
 ]

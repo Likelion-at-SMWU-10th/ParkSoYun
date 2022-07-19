@@ -1,7 +1,7 @@
 from time import timezone
 from django.shortcuts import redirect, render,get_object_or_404
-from .models import Description
-from .forms import PageForm
+from .models import Description, Comment
+from .forms import CommentForm, PageForm
 from django.utils import timezone
 from .forms import PageForm
 
@@ -11,7 +11,8 @@ def page(request):
 
 def content(request, des_id):
     description=get_object_or_404(Description,pk=des_id)
-    return render(request,'description/content.html', {'description':description})
+    form=CommentForm()
+    return render(request,'description/content.html', {'description':description,'form':form})
 
 def formcreate(request):
     if request.method=='POST':
@@ -67,3 +68,13 @@ def result(request):
     else:
         return render(request, 'description/result.html',{'error':'검색어를 입력하세요'})
 
+def commentcreate(request, des_id):
+    des=get_object_or_404(Description,pk=des_id)
+    if request.method=='POST':
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            comment=form.save(commit=False)
+            comment.description=des
+            comment.save()
+            
+    return redirect('content',des_id=des.pk)

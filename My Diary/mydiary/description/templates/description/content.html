@@ -6,8 +6,21 @@
     <h3>제목: {{ description.title }}</h3>
     <p>날짜: {{ description.pub_date }}</p>
     <p>내용: {{ description.body }}</p>
-    <br>
     <a href="{% url 'contentupdate' description.id %}">Modifying</a>
     <a href="{% url 'contentdelete' description.id %}">   Delete</a>
+    <br>
+    <br>
+    <form method="POST" action="{% url 'commentcreate' description.id %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">댓글 등록</button>
+    </form>
+
+    <h4>댓글 목록</h4>
+    {% for comment in description.comment_set.all %}
+        {{ comment.content }}
+        {{ comment.created_at }}
+        <br>
+    {% endfor %}
 
 {% endblock %}
