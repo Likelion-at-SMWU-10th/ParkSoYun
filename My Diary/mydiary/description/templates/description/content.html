@@ -20,8 +20,8 @@
     {% for comment in description.comment_set.all %}
         {{ comment.content }}
         {{ comment.created_at }}
-        <a href="{% url 'commentupdate' comment.id %}">Modifying</a>
-        <a href="{% url 'commentdelete' comment.id %}">  Delete</a>
+        <a href="{% url 'commentupdate' description.id comment.id %}">Modifying</a>
+        <a href="{% url 'commentdelete' description.id comment.id %}">  Delete</a>
         <br>
     {% endfor %}
 

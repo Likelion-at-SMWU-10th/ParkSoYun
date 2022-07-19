@@ -79,18 +79,20 @@ def commentcreate(request, des_id):
             
     return redirect('content',des_id=des.pk)
 
-def commentupdate(request,com_id):
+def commentupdate(request,com_id,des_id):
+    post=get_object_or_404(Description, pk=des_id)
     comment=get_object_or_404(Comment,pk=com_id)
     if request.method=='POST':
         form=CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            return redirect('content',des_id=comment.pk)
+            return redirect('content',des_id=post.pk)
     else:
         form=CommentForm(instance=comment)
         return render(request,'description/edit.html',{'form':form})
 
-def commentdelete(request,com_id):
+def commentdelete(request,com_id,des_id):
+    post=get_object_or_404(Description, pk=des_id)
     comment=get_object_or_404(Comment,pk=com_id)
     comment.delete()
-    return redirect('content')
+    return redirect('content',des_id=post.pk)
